@@ -46,3 +46,15 @@ export async function signOutUser() {
 export async function getUserProfile(id) {
     return await client.from('profiles').select('*').match({ id }).single(); 
 }
+
+export async function getComments() {
+    return await client.from('comments').select('*');
+}
+
+export async function addComment(comment) {
+    return await client.from('comments').insert(comment).single();
+}
+
+// export async function getComment(id) {
+//     return await client.from('comments').select('*').match({ id }).single();
+// }
